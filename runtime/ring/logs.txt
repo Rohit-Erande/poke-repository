@@ -1,0 +1,99 @@
+sweny@Sweny /cygdrive/f/Sem-2/275/core-netty-4.0/src
+$ java -cp "f:/Sem-2/275/core-netty-4.0/lib/*;f:/Sem-2/275/core-netty-4.0/classes" poke/server/Server F:/Sem-2/275/core-netty-4.0/runtime/ring/server1.conf
+[main] INFO server - Initializing server one
+[main] INFO management - Expects to connect to node two (192.168.0.5, 5672)
+[main] INFO server - Server one, managers initialized
+[Thread-0] INFO management - starting HB manager
+[Thread-1] INFO management - HB connection monitor starting, node has 1 connections
+[main] INFO server - Server one ready
+[Thread-3] INFO server - Starting mgmt one, listening on port = 5671
+[Thread-4] INFO server - Starting server one, listening on port = 5571
+[Thread-1] INFO management - attempting to connect to node: 192.168.0.5:5672
+[Thread-1] INFO mgmt - sending mgmt join message
+[Thread-1] INFO mgmt - join message sent
+[nioEventLoopGroup-2-1] ERROR mgmt - Unexpected exception from downstream.
+java.io.IOException: An existing connection was forcibly closed by the remote host
+        at sun.nio.ch.SocketDispatcher.read0(Native Method)
+        at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+        at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+        at sun.nio.ch.IOUtil.read(Unknown Source)
+        at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+        at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:446)
+        at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:871)
+        at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:208)
+        at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:124)
+        at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+        at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+        at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+        at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:101)
+        at java.lang.Thread.run(Unknown Source)
+[nioEventLoopGroup-2-1] WARN mgmt - HeartMonitor releasing resources
+[nioEventLoopGroup-2-1] ERROR mgmt - monitor channel inactive
+[Thread-1] INFO management - attempting to connect to node: 192.168.0.5:5672
+[Thread-1] INFO mgmt - sending mgmt join message
+[Thread-1] INFO mgmt - join message sent
+[nioEventLoopGroup-2-2] ERROR mgmt - Unexpected exception from downstream.
+io.netty.handler.codec.TooLongFrameException: Adjusted frame length exceeds 67108864: 1095586132 - discarded
+        at io.netty.handler.codec.LengthFieldBasedFrameDecoder.fail(LengthFieldBasedFrameDecoder.java:501)
+        at io.netty.handler.codec.LengthFieldBasedFrameDecoder.failIfNecessary(LengthFieldBasedFrameDecoder.java:477)
+        at io.netty.handler.codec.LengthFieldBasedFrameDecoder.decode(LengthFieldBasedFrameDecoder.java:403)
+        at io.netty.handler.codec.LengthFieldBasedFrameDecoder.decode(LengthFieldBasedFrameDecoder.java:343)
+        at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:226)
+        at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:139)
+        at io.netty.channel.DefaultChannelHandlerContext.invokeChannelRead(DefaultChannelHandlerContext.java:338)
+        at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:324)
+        at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:785)
+        at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:132)
+        at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+        at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+        at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+        at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:101)
+        at java.lang.Thread.run(Unknown Source)
+[nioEventLoopGroup-2-2] WARN mgmt - HeartMonitor releasing resources
+[nioEventLoopGroup-2-2] ERROR mgmt - monitor channel inactive
+[inbound-mgmt-1] INFO management - Network: node 'mgmt-one.1' sent a NODEJOIN
+[inbound-mgmt-1] INFO management - NODEJOIN: Sweny, 5671
+[Thread-0] INFO management - sending heartbeat
+[Thread-1] INFO management - attempting to connect to node: 192.168.0.5:5672
+[Thread-1] INFO mgmt - sending mgmt join message
+[Thread-1] INFO mgmt - join message sent
+[nioEventLoopGroup-2-3] ERROR mgmt - Unexpected exception from downstream.
+io.netty.handler.codec.TooLongFrameException: Adjusted frame length exceeds 67108864: 1095586132 - discarded
+        at io.netty.handler.codec.LengthFieldBasedFrameDecoder.fail(LengthFieldBasedFrameDecoder.java:501)
+        at io.netty.handler.codec.LengthFieldBasedFrameDecoder.failIfNecessary(LengthFieldBasedFrameDecoder.java:477)
+        at io.netty.handler.codec.LengthFieldBasedFrameDecoder.decode(LengthFieldBasedFrameDecoder.java:403)
+        at io.netty.handler.codec.LengthFieldBasedFrameDecoder.decode(LengthFieldBasedFrameDecoder.java:343)
+        at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:226)
+        at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:139)
+        at io.netty.channel.DefaultChannelHandlerContext.invokeChannelRead(DefaultChannelHandlerContext.java:338)
+        at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:324)
+        at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:785)
+        at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:132)
+        at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+        at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+        at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+        at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:101)
+        at java.lang.Thread.run(Unknown Source)
+[nioEventLoopGroup-2-3] WARN mgmt - HeartMonitor releasing resources
+[nioEventLoopGroup-2-3] ERROR mgmt - monitor channel inactive
+[Thread-1] INFO management - attempting to connect to node: 192.168.0.5:5672
+[Thread-1] INFO mgmt - sending mgmt join message
+[Thread-1] INFO mgmt - join message sent
+[nioEventLoopGroup-2-4] ERROR mgmt - Unexpected exception from downstream.
+java.io.IOException: An existing connection was forcibly closed by the remote host
+        at sun.nio.ch.SocketDispatcher.read0(Native Method)
+        at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+        at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+        at sun.nio.ch.IOUtil.read(Unknown Source)
+        at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+        at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:446)
+        at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:871)
+        at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:208)
+        at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:124)
+        at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+        at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+        at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+        at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:101)
+        at java.lang.Thread.run(Unknown Source)
+[nioEventLoopGroup-2-4] WARN mgmt - HeartMonitor releasing resources
+[nioEventLoopGroup-2-4] ERROR mgmt - monitor channel inactive
